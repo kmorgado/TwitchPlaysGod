@@ -62,12 +62,12 @@ public class StatTracker : Singleton<StatTracker> {
     {
         // Invoke the simulation? or is simulation calling this?
         // At the very least push it to history
-        history.Enqueue(currentState.Clone());
-
-        if (history.Count > maxHistoryLength)
+        if (history.Count == maxHistoryLength)
         {
             // Don't even care
             history.Dequeue();
         }
+        history.Enqueue(currentState.Clone());
+
     }
 }
