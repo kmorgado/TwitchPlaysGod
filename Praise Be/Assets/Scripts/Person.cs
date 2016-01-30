@@ -14,7 +14,7 @@ public class Person : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	    if (Random.Range(0,1) > moveChancePct)
+	    if (Random.Range(0.0f,1.0f) > moveChancePct)
         {
             MoveRandom();
         }
