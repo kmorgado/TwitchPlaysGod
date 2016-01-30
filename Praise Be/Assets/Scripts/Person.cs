@@ -112,6 +112,31 @@ public class Person : MonoBehaviour {
     //
     private bool IsValidTransform()
     {
-        return true;
+        GameObject checker = GameObject.Find("IslandBounds");
+
+        if (checker == null)
+        {
+            Debug.Log("No IslandBounds");
+            return false;
+        }
+
+        PolygonCollider2D islandCollider = checker.GetComponent<PolygonCollider2D>();
+        Collider2D personCollider = GetComponent<Collider2D>();
+
+        if (islandCollider == null)
+        {
+            Debug.Log("No Island Collider");
+            return false;
+        }
+        if (personCollider == null)
+        {
+            Debug.Log("No Person Collider");
+            return false;
+        }
+
+        // Ok, so we have colliders, lets see if they are touching
+        bool touching = islandCollider.IsTouching(personCollider);
+        Debug.Log(string.Format("Touching: {0}", touching ? "True" : "False"));
+        return touching;
     }
 }
