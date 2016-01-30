@@ -1,0 +1,37 @@
+PRAISE BE
+
+aka
+
+Twitch Plays God
+
+
+Twitch channel loads. You see a small island with a central temple and several buildings and a population of people.
+You as well as other watchers control the fate of those inhabitants of the island by praying to gods and performing rituals.
+
+Commands:
+
+Praise <Insert God Here>
+
+Show devotion to one of the gods. Each of these gods holds domain over an aspect of the island.
+
+God of Economy
+God of Nature/Creation
+God of War/Strength
+
+God of Destruction???
+Should this be a god or should any destructive elements come from random events?
+
+Vote <Answer>
+
+We will also show poll questions. These are scripted in advance and will likely impact the base game stats.
+
+Stats:
+
+The simulated events on the island will be driven by base stats that are not displayed to the users.
+
+Faith - This stat is a measure of the number of devotions made in proportion to the number of viewers.
+Economy - This stat determines how much money is generated per round
+Nature/Creation - This stat determines tree production on the island, maybe animals and shit
+War/Strength - This stat determines the strength of the population, presumably to prevent attacks from outside?
+Anarchy - Randomized
+Viewers - How many people are currently viewing
