@@ -27,6 +27,14 @@ namespace AssemblyCSharp
 		void Update()
 		{
 			//The Temple is the main faith object and levels up as faith grows
+
+			PolygonCollider2D bounds = IslandBounds.GetComponent<PolygonCollider2D>();
+
+			foreach(GameObject go in TreeCollection)
+			{
+				//if(go.GetComponent<BoxCollider2D>().IsTouching(bounds) == false)
+					//go.SetActive(false);
+			}
 		}
 
 
@@ -39,9 +47,10 @@ namespace AssemblyCSharp
 				
 				// create sprite
 				Texture2D tex = Resources.Load<Texture2D>(System.String.Format("Nature/Tree{0}", UnityEngine.Random.Range(1, 8))) as Texture2D;
-				
-				Vector3 pos = GetPointInCollider(IslandBounds.GetComponent<PolygonCollider2D>());
 
+				PolygonCollider2D bounds = IslandBounds.GetComponent<PolygonCollider2D>();
+
+				Vector3 pos = GetPointInCollider(bounds);
 
 					//new Vector3(UnityEngine.Random.Range(-400, 400), UnityEngine.Random.Range(0, 400), 1);
 				
@@ -49,14 +58,29 @@ namespace AssemblyCSharp
 				// create gameobject
 				GameObject go = AddSprite(tex);
 				go.name = "Tree";
+
+				go.AddComponent<BoxCollider2D>();
+
+				go.AddComponent<Rigidbody2D>();
+
+				go.GetComponent<BoxCollider2D>().isTrigger = true;
+				go.GetComponent<Rigidbody2D>().isKinematic = true;
+
+				//temp.
+
 				go.transform.parent = TreeParent.transform;
-				go.transform.localPosition = pos;
+				go.transform.position = pos;
 				go.transform.localScale = new Vector3(scale, scale, scale);
-				
+
+
+
+
+
 				TreeCollection.Add(go);
+				//else
+				//	go.SetActive(false);
 			}
 		}
-
 
 
 		// Vector3 GenerateRandomIslandPosition()
@@ -74,10 +98,10 @@ namespace AssemblyCSharp
 		{
 			var bounds = area.bounds;
 			var center = bounds.center;
-			
+
 			var x = UnityEngine.Random.Range(center.x - bounds.extents.x, center.x + bounds.extents.x);
 			var y = UnityEngine.Random.Range(center.y - bounds.extents.y, center.y + bounds.extents.y);
-			
+
 			return new Vector3(x, y, 0);
 		}
 
