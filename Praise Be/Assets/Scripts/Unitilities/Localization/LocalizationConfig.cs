@@ -90,6 +90,8 @@ namespace Unitilities.Localization
     [System.Serializable]
     public struct LocalizationData
     {
+#pragma warning disable 219
+#pragma warning disable 414
         #region Fields
 
         [SerializeField, HideInInspector]

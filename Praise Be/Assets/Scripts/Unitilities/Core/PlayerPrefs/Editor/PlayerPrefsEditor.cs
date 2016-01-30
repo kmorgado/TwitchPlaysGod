@@ -64,7 +64,7 @@ namespace Unitilities.Debugging
             #if UNITY_5_1
                 window.titleContent.text = "PlayerPrefs Editor";
             #else
-                window.title = "PlayerPrefs Editor";
+                window.titleContent.text = "PlayerPrefs Editor";
             #endif
             //window.somethingWasDeleted = false;
         }
