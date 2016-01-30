@@ -49,6 +49,7 @@ public class StatTracker : Singleton<StatTracker> {
     // Use this for initialization
     void Start () {
         history = new Queue<StatGameState>();
+        currentState = new StatGameState();
 	}
 	
 	// Update is called once per frame
