@@ -5,22 +5,15 @@ using System.Text;
 
 namespace Assets.Scripts.Utility
 {
-    /*
-    Humor (Strength)
-    Wit (Intellect)
-    Nerve (Defense)
-    Timing (Speed)
-    Tact (Health)
-    */
     
-    public enum StatType
+
+    public enum Affinity
     {
-        Humor,
-        Wit,
-        Nerve,
-        Timing,
-        Tact,
-        Sarcasm
+        Nature,
+		War,
+		Economy,
+		Faith,
+		Anarchy
     };
 
     public static class CommonStats
