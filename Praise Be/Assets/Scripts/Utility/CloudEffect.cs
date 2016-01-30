@@ -19,7 +19,7 @@ public class CloudEffect : MonoBehaviour
     //tk2dSpriteCollectionData cloudCollection;
 
     List<GameObject> cloudArrayLeft;
-    List<Sprite> cloudArrayRight;
+    //List<Sprite> cloudArrayRight;
 	List<float> cloudSpeed;
 
 	string[] cloudSpriteNames = { "PUN_GEN_CloudL", "PUN_GEN_CloudM", "PUN_GEN_CloudS", "PUN_GEN_CloudFat", "PUN_GEN_CloudLong" };
@@ -37,13 +37,13 @@ public class CloudEffect : MonoBehaviour
 		//parent.name = "CloudGroup";
 
         cloudArrayLeft = new List<GameObject>();
-        cloudArrayRight = new List<Sprite>();
+        //cloudArrayRight = new List<Sprite>();
 		cloudSpeed = new List<float>();
 
 		//Generate Clouds Starting on the left moving right
 		for (int i = 0; i < GenerateXNumberOfClouds / 2; ++i)
 		{
-			System.Random rnd = new System.Random();
+			//System.Random rnd = new System.Random();
             string cloudName = cloudSpriteNames[Random.Range(0, 5)];
 
             // create sprite
