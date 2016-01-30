@@ -1,7 +1,8 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
+using Assets.Scripts;
 
-public class StatTracker : MonoBehaviour {
+public class StatTracker : Singleton<StatTracker> {
 
     // Stats:
     // Doubles probably make the most sense
