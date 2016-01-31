@@ -21,7 +21,7 @@ namespace AssemblyCSharp
 
 		void Start ()
 		{
-			GenerateTrees(150);
+			GenerateTrees(50);
 		}
 
 		void Update()
@@ -32,8 +32,8 @@ namespace AssemblyCSharp
 
 			foreach(GameObject go in TreeCollection)
 			{
-				//if(go.GetComponent<BoxCollider2D>().IsTouching(bounds) == false)
-					//go.SetActive(false);
+				if(go.GetComponent<BoxCollider2D>().IsTouching(bounds) == false)
+					go.SetActive(false);
 			}
 		}
 
@@ -113,6 +113,8 @@ namespace AssemblyCSharp
 			Sprite newSprite = Sprite.Create(_texture, new Rect(0f, 0f, _texture.width, _texture.height), new Vector2(0.5f, 0.5f), 128f);
 			
 			GameObject sprGameObj = new GameObject();
+
+
 			sprGameObj.AddComponent<SpriteRenderer>();
 			//sprite.scale = new Vector3(sprite.scale.x * scale, sprite.scale.y * scale, sprite.scale.z);
 			
