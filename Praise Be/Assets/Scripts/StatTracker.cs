@@ -11,7 +11,7 @@ public class StatTracker : Singleton<StatTracker> {
 
     public float population = 100.0f;
     public float happiness = 50.0f;
-	public float maxpopulation = 999999;
+	public float maxpopulation = 100000;
 
     // We should have at least a brief history of previous gamestates (rounds)
     private Queue<StatGameState> history;
@@ -81,6 +81,9 @@ public class StatTracker : Singleton<StatTracker> {
 
             happiness = happiness + (happiness * ((currentExcessGodValue - lifeAverage) / currentExcessGodValue));
         }
+
+        if (population > maxpopulation)
+            population = maxpopulation;
 	}
 
     // This will get fired on a timer, this timer may come from this class

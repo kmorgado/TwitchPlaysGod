@@ -1240,6 +1240,18 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11440126, guid: 4bb52438b04d2b64498c15306624e804, type: 2}
+      propertyPath: m_Color.r
+      value: .933823526
+      objectReference: {fileID: 0}
+    - target: {fileID: 11440126, guid: 4bb52438b04d2b64498c15306624e804, type: 2}
+      propertyPath: m_Color.g
+      value: .897360861
+      objectReference: {fileID: 0}
+    - target: {fileID: 11440126, guid: 4bb52438b04d2b64498c15306624e804, type: 2}
+      propertyPath: m_Color.b
+      value: .693501294
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4bb52438b04d2b64498c15306624e804, type: 2}
   m_IsPrefabParent: 0
@@ -2930,6 +2942,10 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 11454142, guid: 7acaec3fcb77845688bc1ca7993a839f, type: 2}
+      propertyPath: skinColors.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11454142, guid: 7acaec3fcb77845688bc1ca7993a839f, type: 2}
       propertyPath: TreeAvoidList.Array.size
       value: 8
       objectReference: {fileID: 0}
@@ -3061,6 +3077,86 @@ Prefab:
       propertyPath: moralNoText
       value: 
       objectReference: {fileID: 1500520761}
+    - target: {fileID: 11454142, guid: 7acaec3fcb77845688bc1ca7993a839f, type: 2}
+      propertyPath: skinColors.Array.data[0].r
+      value: .725490212
+      objectReference: {fileID: 0}
+    - target: {fileID: 11454142, guid: 7acaec3fcb77845688bc1ca7993a839f, type: 2}
+      propertyPath: skinColors.Array.data[0].g
+      value: .552941203
+      objectReference: {fileID: 0}
+    - target: {fileID: 11454142, guid: 7acaec3fcb77845688bc1ca7993a839f, type: 2}
+      propertyPath: skinColors.Array.data[0].b
+      value: .490196109
+      objectReference: {fileID: 0}
+    - target: {fileID: 11454142, guid: 7acaec3fcb77845688bc1ca7993a839f, type: 2}
+      propertyPath: skinColors.Array.data[1].r
+      value: .392156899
+      objectReference: {fileID: 0}
+    - target: {fileID: 11454142, guid: 7acaec3fcb77845688bc1ca7993a839f, type: 2}
+      propertyPath: skinColors.Array.data[1].g
+      value: .262745112
+      objectReference: {fileID: 0}
+    - target: {fileID: 11454142, guid: 7acaec3fcb77845688bc1ca7993a839f, type: 2}
+      propertyPath: skinColors.Array.data[1].b
+      value: .215686291
+      objectReference: {fileID: 0}
+    - target: {fileID: 11454142, guid: 7acaec3fcb77845688bc1ca7993a839f, type: 2}
+      propertyPath: skinColors.Array.data[2].r
+      value: .898039281
+      objectReference: {fileID: 0}
+    - target: {fileID: 11454142, guid: 7acaec3fcb77845688bc1ca7993a839f, type: 2}
+      propertyPath: skinColors.Array.data[2].g
+      value: .725490212
+      objectReference: {fileID: 0}
+    - target: {fileID: 11454142, guid: 7acaec3fcb77845688bc1ca7993a839f, type: 2}
+      propertyPath: skinColors.Array.data[2].b
+      value: .662745118
+      objectReference: {fileID: 0}
+    - target: {fileID: 11454142, guid: 7acaec3fcb77845688bc1ca7993a839f, type: 2}
+      propertyPath: skinColors.Array.data[3].r
+      value: .898039281
+      objectReference: {fileID: 0}
+    - target: {fileID: 11454142, guid: 7acaec3fcb77845688bc1ca7993a839f, type: 2}
+      propertyPath: skinColors.Array.data[3].g
+      value: .858823597
+      objectReference: {fileID: 0}
+    - target: {fileID: 11454142, guid: 7acaec3fcb77845688bc1ca7993a839f, type: 2}
+      propertyPath: skinColors.Array.data[3].b
+      value: .662745118
+      objectReference: {fileID: 0}
+    - target: {fileID: 11454142, guid: 7acaec3fcb77845688bc1ca7993a839f, type: 2}
+      propertyPath: skinColors.Array.data[4].r
+      value: .382352948
+      objectReference: {fileID: 0}
+    - target: {fileID: 11454142, guid: 7acaec3fcb77845688bc1ca7993a839f, type: 2}
+      propertyPath: skinColors.Array.data[4].g
+      value: .309178501
+      objectReference: {fileID: 0}
+    - target: {fileID: 11454142, guid: 7acaec3fcb77845688bc1ca7993a839f, type: 2}
+      propertyPath: skinColors.Array.data[4].b
+      value: .0702854693
+      objectReference: {fileID: 0}
+    - target: {fileID: 11454142, guid: 7acaec3fcb77845688bc1ca7993a839f, type: 2}
+      propertyPath: skinColors.Array.data[1].a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11454142, guid: 7acaec3fcb77845688bc1ca7993a839f, type: 2}
+      propertyPath: skinColors.Array.data[0].a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11454142, guid: 7acaec3fcb77845688bc1ca7993a839f, type: 2}
+      propertyPath: skinColors.Array.data[2].a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11454142, guid: 7acaec3fcb77845688bc1ca7993a839f, type: 2}
+      propertyPath: skinColors.Array.data[3].a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11454142, guid: 7acaec3fcb77845688bc1ca7993a839f, type: 2}
+      propertyPath: skinColors.Array.data[4].a
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11424324, guid: 7acaec3fcb77845688bc1ca7993a839f, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 7acaec3fcb77845688bc1ca7993a839f, type: 2}

@@ -34,6 +34,8 @@ namespace AssemblyCSharp
         public int maxPeopleCount;
 
 
+        public List<Color> skinColors;
+
 		void Start ()
 		{
 			iterCount = 0;
@@ -92,9 +94,6 @@ namespace AssemblyCSharp
             //int normalizeRange = popRange / peopleRange;
 
             int currentPeopleCount = Convert.ToInt32((peopleRange * normalized) + minPeopleCount);
-
-            Debug.Log(StatTracker.Instance.population);
-
 
             if (PeopleCollection.Count < currentPeopleCount && PeopleCollection.Count < maxPeopleCount)
                 GeneratePeople(1);
@@ -192,7 +191,7 @@ namespace AssemblyCSharp
                 tempPerson.transform.parent = PeopleParent.transform;
                 tempPerson.transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
                 tempPerson.transform.localPosition = new Vector3(0, 0, 0);
-
+                tempPerson.GetComponent<Image>().color = skinColors[UnityEngine.Random.Range(0, skinColors.Count - 1)];
 
                 PeopleCollection.Add(tempPerson);
             }
