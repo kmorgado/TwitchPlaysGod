@@ -2566,6 +2566,18 @@ Prefab:
       propertyPath: statTracker
       value: 
       objectReference: {fileID: 1529141856}
+    - target: {fileID: 11409498, guid: 7a5038e8592a14efca3268422f852f88, type: 2}
+      propertyPath: statTracker
+      value: 
+      objectReference: {fileID: 1529141856}
+    - target: {fileID: 11421774, guid: 7a5038e8592a14efca3268422f852f88, type: 2}
+      propertyPath: statTracker
+      value: 
+      objectReference: {fileID: 1529141856}
+    - target: {fileID: 11444568, guid: 7a5038e8592a14efca3268422f852f88, type: 2}
+      propertyPath: statTracker
+      value: 
+      objectReference: {fileID: 1529141856}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7a5038e8592a14efca3268422f852f88, type: 2}
   m_IsPrefabParent: 0

@@ -41,9 +41,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameLogicExecutor: {fileID: 0}
   keywordLogicAssociation:
-  - key: praise life
+  - key: praise creation
     executor: {fileID: 0}
-  - key: praise order
+  - key: praise excess
     executor: {fileID: 0}
   - key: praise death
     executor: {fileID: 0}

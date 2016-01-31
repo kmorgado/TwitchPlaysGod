@@ -44,42 +44,52 @@ MonoBehaviour:
   - delayInSeconds: 1
     message:
       from: Herp
-      message: 
+      message: praise creation
       type: 1
   - delayInSeconds: 1
     message:
       from: Derp
-      message: 
+      message: praise creation
       type: 1
   - delayInSeconds: 1
     message:
       from: Fast
-      message: 1
+      message: praise creation
       type: 1
   - delayInSeconds: 1
     message:
       from: Fast
-      message: 0.5
+      message: praise creation
       type: 0
   - delayInSeconds: 2
     message:
       from: Gonzi
-      message: '!!!!'
+      message: praise creation
       type: 1
   - delayInSeconds: 2
     message:
       from: Gonzi
-      message: '!!!!'
+      message: praise creation
       type: 1
   - delayInSeconds: 2
     message:
       from: Gonzi
-      message: '!!!!'
+      message: praise creation
       type: 1
   - delayInSeconds: 2
     message:
       from: Gonzi
-      message: '!!!!'
+      message: praise creation
+      type: 1
+  - delayInSeconds: 0.25
+    message:
+      from: Gonzi
+      message: praise creation
+      type: 1
+  - delayInSeconds: 0.25
+    message:
+      from: Gonzi
+      message: praise creation
       type: 1
   - delayInSeconds: 0.25
     message:
@@ -89,37 +99,27 @@ MonoBehaviour:
   - delayInSeconds: 0.25
     message:
       from: Gonzi
-      message: '!!!!'
-      type: 1
-  - delayInSeconds: 0.25
-    message:
-      from: Gonzi
-      message: '!!!!'
-      type: 1
-  - delayInSeconds: 0.25
-    message:
-      from: Gonzi
-      message: '!!!!'
+      message: praise creation
       type: 1
   - delayInSeconds: 1
     message:
       from: Gonzi
-      message: '!!!!'
+      message: praise creation
       type: 1
   - delayInSeconds: 0
     message:
       from: Gonzi
-      message: '!!!!'
+      message: praise creation
       type: 1
   - delayInSeconds: 1
     message:
       from: Gonzi
-      message: '!!!!'
+      message: praise creation
       type: 1
   - delayInSeconds: 0.1
     message:
       from: Gonzi
-      message: '!!!!'
+      message: praise creation
       type: 1
 --- !u!1001 &100100000
 Prefab:
