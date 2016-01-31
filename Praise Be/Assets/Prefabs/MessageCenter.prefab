@@ -1,0 +1,440 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &118124
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 472876}
+  m_Layer: 0
+  m_Name: MessageCenter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &137270
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 461336}
+  - 114: {fileID: 11460586}
+  m_Layer: 0
+  m_Name: Creation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &140710
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 460464}
+  - 114: {fileID: 11454052}
+  m_Layer: 0
+  m_Name: Death
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &150908
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 453594}
+  - 114: {fileID: 11468430}
+  m_Layer: 0
+  m_Name: KeywordParser
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &168670
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 494628}
+  - 114: {fileID: 11408328}
+  m_Layer: 0
+  m_Name: DietyHub
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &171766
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 401992}
+  - 114: {fileID: 11434152}
+  - 114: {fileID: 11470946}
+  m_Layer: 0
+  m_Name: TwitchMessageGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &181190
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 408894}
+  - 114: {fileID: 11454632}
+  m_Layer: 0
+  m_Name: AutomatedMessageGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &197542
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 415104}
+  - 114: {fileID: 11490124}
+  m_Layer: 0
+  m_Name: Excess
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &401992
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 171766}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 472876}
+  m_RootOrder: 2
+--- !u!4 &408894
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 181190}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 472876}
+  m_RootOrder: 0
+--- !u!4 &415104
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 197542}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 494628}
+  m_RootOrder: 2
+--- !u!4 &453594
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 150908}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 472876}
+  m_RootOrder: 1
+--- !u!4 &460464
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 140710}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 494628}
+  m_RootOrder: 0
+--- !u!4 &461336
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 137270}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 494628}
+  m_RootOrder: 1
+--- !u!4 &472876
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 118124}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 408894}
+  - {fileID: 453594}
+  - {fileID: 401992}
+  - {fileID: 494628}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!4 &494628
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 168670}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 460464}
+  - {fileID: 461336}
+  - {fileID: 415104}
+  m_Father: {fileID: 472876}
+  m_RootOrder: 3
+--- !u!114 &11408328
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 168670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48adb30dfbcab447a9477265d2e0888f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statTracker: {fileID: 0}
+--- !u!114 &11434152
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 171766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9ec6cc1a3ef24147a9d7859272978c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keywordParser: {fileID: 11468430}
+--- !u!114 &11454052
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 140710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f60e49bdb0fa1470bb242d5c92ad893a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statTracker: {fileID: 0}
+  creationBoon: 1
+  excessBoon: -1
+  deathBoon: 2
+--- !u!114 &11454632
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 181190}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3db37b9a192f7442897ca7edbb68ee02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keywordParser: {fileID: 11468430}
+  messageList:
+  - delayInSeconds: 1
+    message:
+      from: Herp
+      message: praise creation
+      type: 1
+  - delayInSeconds: 1
+    message:
+      from: Derp
+      message: praise creation
+      type: 1
+  - delayInSeconds: 1
+    message:
+      from: Fast
+      message: praise creation
+      type: 1
+  - delayInSeconds: 1
+    message:
+      from: Fast
+      message: praise creation
+      type: 0
+  - delayInSeconds: 2
+    message:
+      from: Gonzi
+      message: praise creation
+      type: 1
+  - delayInSeconds: 2
+    message:
+      from: Gonzi
+      message: praise creation
+      type: 1
+  - delayInSeconds: 2
+    message:
+      from: Gonzi
+      message: praise creation
+      type: 1
+  - delayInSeconds: 2
+    message:
+      from: Gonzi
+      message: praise creation
+      type: 1
+  - delayInSeconds: 0.25
+    message:
+      from: Gonzi
+      message: praise creation
+      type: 1
+  - delayInSeconds: 0.25
+    message:
+      from: Gonzi
+      message: praise creation
+      type: 1
+  - delayInSeconds: 0.25
+    message:
+      from: Gonzi
+      message: '!!!!'
+      type: 1
+  - delayInSeconds: 0.25
+    message:
+      from: Gonzi
+      message: praise creation
+      type: 1
+  - delayInSeconds: 1
+    message:
+      from: Gonzi
+      message: praise creation
+      type: 1
+  - delayInSeconds: 0
+    message:
+      from: Gonzi
+      message: praise creation
+      type: 1
+  - delayInSeconds: 1
+    message:
+      from: Gonzi
+      message: praise creation
+      type: 1
+  - delayInSeconds: 0.1
+    message:
+      from: Gonzi
+      message: praise creation
+      type: 1
+--- !u!114 &11460586
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 137270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dbe32a3dc85b42fda83bd1d91fd925f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statTracker: {fileID: 0}
+  creationBoon: 2
+  excessBoon: 1
+  deathBoon: -1
+--- !u!114 &11468430
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 150908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2aeb1b6a611b43d6bfe6a10ba501533, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameLogicExecutor: {fileID: 11408328}
+  keywordLogicAssociation:
+  - key: praise creation
+    executor: {fileID: 11460586}
+  - key: praise excess
+    executor: {fileID: 11490124}
+  - key: praise death
+    executor: {fileID: 11454052}
+--- !u!114 &11470946
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 171766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a666e5fd6ceeef49ba6b1f8aaf6b43c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ConnectOnAwake: 1
+  Username: praise_be
+  OauthToken: oauth:nb1ammmqegstlj3rf1rv8q93ttk9tv
+  Channel: praise_be
+--- !u!114 &11490124
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 197542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7afedd3f7bb8f45e783ff71abdcff552, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statTracker: {fileID: 0}
+  creationBoon: -1
+  excessBoon: 2
+  deathBoon: 1
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 118124}
+  m_IsPrefabParent: 1
