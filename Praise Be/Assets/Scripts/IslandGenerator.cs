@@ -87,7 +87,7 @@ namespace AssemblyCSharp
 					{
 						if (go.GetComponent<BoxCollider2D>().IsTouching(avd.GetComponent<Collider2D>()))
 						{
-							Debug.Log(avd.name);
+							//Debug.Log(avd.name);
 							//TreeCollection.Remove (go);
 							//GameObject.Destroy (go);
 							//continue;

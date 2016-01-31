@@ -6,7 +6,11 @@ public class Person : MonoBehaviour {
 
     public Image personImage;
     public float moveChancePct;
-    
+    public float moveSpeed = 5;
+
+    Rigidbody2D rb2D;
+    Vector2 WalkDir;
+
     public enum walkDirection
     {
         NORTH = 0,
@@ -22,8 +26,18 @@ public class Person : MonoBehaviour {
 	void Start () {
         moveChancePct = 0.03f;
         currentWalkDirection = walkDirection.WEST;
+        WalkDir = Vector2.right;
+
+        rb2D = this.GetComponent<Rigidbody2D>();
 	}
-	
+
+    void FixedUpdate()
+    {
+        rb2D.AddForce(WalkDir * moveSpeed);
+
+        //rb2D.MovePosition(rb2D.position + Vector2.right * moveSpeed * Time.fixedDeltaTime);
+    }
+
 	// Update is called once per frame
 	void Update () {
         MoveSmarter();
@@ -31,23 +45,29 @@ public class Person : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D other)
 	{
-		Debug.Log ("Outta my way you stupid ass building");
 		if(other.gameObject.tag.Equals("Building"))
 		{
+            Debug.Log("Outta my way you stupid ass building");
 			switchDirection ();
 		}
 	}
 
-	void OnCollisionExit2D(Collision2D other)
+	void OnTriggerExit2D(Collider2D other)
 	{
-		Debug.Log ("Gettin off this island muthafucka!!!");
-		if(other.gameObject.tag.Equals ("Island"))
+		if(other.tag.Equals ("Island"))
 		{
+            Debug.Log("Gettin off this island muthafucka!!!");
 			switchDirection ();
 		}
 	}
+
+
+
 	private void switchDirection()
 	{
+        //ChooseRandomDirection();
+        WalkDir *= -1;
+
 		switch (currentWalkDirection)
 		{
 		case walkDirection.NORTH:
@@ -71,12 +91,13 @@ public class Person : MonoBehaviour {
         if (Random.Range(0.0f, 1.0f) < moveChancePct)
             ChooseRandomDirection();
 
-        Move();
+        //Move();
     }
 
     private void Move(float scale = 1.0f)
     {
         RectTransform transform = (RectTransform)GetComponentInParent(typeof(RectTransform));
+
 
         switch (currentWalkDirection)
         {
@@ -101,6 +122,10 @@ public class Person : MonoBehaviour {
 
     private void ChooseRandomDirection()
     {
+        WalkDir = new Vector2(Random.Range(-1, 1), Random.Range(-1, 1));
+        WalkDir.Normalize();
+
+
         switch (currentWalkDirection)
         {
             case walkDirection.NORTH:
