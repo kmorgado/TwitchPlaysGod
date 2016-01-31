@@ -3018,7 +3018,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 472876, guid: 604fe93cd41c2410bae37c1c421e7cc2, type: 2}
       propertyPath: m_RootOrder
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 11460586, guid: 604fe93cd41c2410bae37c1c421e7cc2, type: 2}
       propertyPath: statTracker

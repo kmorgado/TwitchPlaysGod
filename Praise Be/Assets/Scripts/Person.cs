@@ -108,10 +108,8 @@ public class Person : MonoBehaviour {
     {
         WalkDir = new Vector2(Random.Range(-1.00f, 1.00f), Random.Range(-1.00f, 1.00f));
         //WalkDir.Normalize();
-        Debug.Log(WalkDir);
 
         rb2D.MoveRotation(rb2D.rotation + Random.Range(-45.0f, 45.0f));
-       
     }
 
     
