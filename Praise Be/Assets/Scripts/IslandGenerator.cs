@@ -12,11 +12,18 @@ namespace AssemblyCSharp
 
 
 		public Building Temple;
+		public Building Store;
+		public Building Factory;
+		
+
+		//HACK
+		public List<GameObject> TreeAvoidList = new List<GameObject>();
 
 
 		public GameObject TreeParent;
 		private List<GameObject> TreeCollection = new List<GameObject>();
 		private float scale = 50.0f;
+
 
 
 		void Start ()
