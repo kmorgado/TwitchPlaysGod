@@ -26,7 +26,7 @@ public class Person : MonoBehaviour {
 	void Start () {
         moveChancePct = 0.03f;
         currentWalkDirection = walkDirection.WEST;
-        WalkDir = Vector2.right;
+        WalkDir = Vector2.up;
 
         rb2D = this.GetComponent<Rigidbody2D>();
 	}
@@ -34,7 +34,6 @@ public class Person : MonoBehaviour {
     void FixedUpdate()
     {
         rb2D.AddForce(WalkDir * moveSpeed);
-
         //rb2D.MovePosition(rb2D.position + Vector2.right * moveSpeed * Time.fixedDeltaTime);
     }
 
@@ -68,21 +67,6 @@ public class Person : MonoBehaviour {
         //ChooseRandomDirection();
         WalkDir *= -1;
 
-		switch (currentWalkDirection)
-		{
-		case walkDirection.NORTH:
-			currentWalkDirection = walkDirection.SOUTH;
-			break;
-		case walkDirection.SOUTH:
-			currentWalkDirection = walkDirection.NORTH;
-			break;
-		case walkDirection.EAST:
-			currentWalkDirection = walkDirection.WEST;
-			break;
-		case walkDirection.WEST:
-			currentWalkDirection = walkDirection.EAST;
-			break;
-		}
 	}
 
     private void MoveSmarter()
@@ -122,27 +106,12 @@ public class Person : MonoBehaviour {
 
     private void ChooseRandomDirection()
     {
-        WalkDir = new Vector2(Random.Range(-1, 1), Random.Range(-1, 1));
-        WalkDir.Normalize();
+        WalkDir = new Vector2(Random.Range(-1.00f, 1.00f), Random.Range(-1.00f, 1.00f));
+        //WalkDir.Normalize();
+        Debug.Log(WalkDir);
 
-
-        switch (currentWalkDirection)
-        {
-            case walkDirection.NORTH:
-            case walkDirection.SOUTH:
-                currentWalkDirection = (walkDirection)Random.Range((int)walkDirection.WEST, (int)walkDirection.STOP);
-                break;
-            case walkDirection.EAST:
-            case walkDirection.WEST:
-                if (Random.Range(0, 2) > 0)
-                    currentWalkDirection = walkDirection.STOP;
-                else
-                    currentWalkDirection = (walkDirection)Random.Range((int)walkDirection.NORTH, (int)walkDirection.WEST);
-                break;
-            case walkDirection.STOP:
-                currentWalkDirection = (walkDirection)Random.Range(0, (int)walkDirection.STOP);
-                break;
-        }
+        rb2D.MoveRotation(rb2D.rotation + Random.Range(-45.0f, 45.0f));
+       
     }
 
     

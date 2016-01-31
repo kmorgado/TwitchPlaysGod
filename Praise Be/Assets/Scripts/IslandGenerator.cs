@@ -27,6 +27,13 @@ namespace AssemblyCSharp
 		public int maxTreeCount;
 
 
+        public GameObject PeopleParent;
+        private List<GameObject> PeopleCollection = new List<GameObject>();
+
+        public int minPeopleCount;
+        public int maxPeopleCount;
+
+
 		void Start ()
 		{
 			iterCount = 0;
@@ -34,6 +41,7 @@ namespace AssemblyCSharp
 			maxTreeCount = 200;
 
 			GenerateTrees(5);
+            GeneratePeople(2);
 		}
 
 		private int GetDesiredTreeCount()
@@ -68,44 +76,77 @@ namespace AssemblyCSharp
 		}
 
 		void Update()
-		{
-			//The Temple is the main faith object and levels up as faith grows
+        {
+            if (Input.GetKeyDown(KeyCode.P))
+                GeneratePeople(2);
+            if (Input.GetKeyDown(KeyCode.O))
+                RemovePerson();
 
-			PolygonCollider2D bounds = IslandBounds.GetComponent<PolygonCollider2D>();
 
-			foreach(GameObject go in TreeCollection)
-			{
-				if(go.GetComponent<BoxCollider2D>().IsTouching(bounds) == false)
-				{
-					//TreeCollection.Remove (go);
-					//GameObject.Destroy (go);
-					go.SetActive (false);
-				}
-				else
-				{
-					foreach(GameObject avd in TreeAvoidList)
-					{
-						if (go.GetComponent<BoxCollider2D>().IsTouching(avd.GetComponent<Collider2D>()))
-						{
-							//Debug.Log(avd.name);
-							//TreeCollection.Remove (go);
-							//GameObject.Destroy (go);
-							//continue;
-							go.SetActive (false);
-						}
-					}
-				}
+            //StatTracker.Instance.population / 
+            float popRange = (StatTracker.Instance.maxpopulation - 100.0f);
+            float normalized = (StatTracker.Instance.population - 100.0f) / popRange;
 
-                if(go.transform.localScale.x == 1)
+            int peopleRange = (maxPeopleCount - minPeopleCount);
+
+            //int normalizeRange = popRange / peopleRange;
+
+            int currentPeopleCount = Convert.ToInt32((peopleRange * normalized) + minPeopleCount);
+
+            Debug.Log(StatTracker.Instance.population);
+
+
+            if (PeopleCollection.Count < currentPeopleCount && PeopleCollection.Count < maxPeopleCount)
+                GeneratePeople(1);
+            else if (PeopleCollection.Count > currentPeopleCount || PeopleCollection.Count > maxPeopleCount)
+            {
+                RemovePerson();
+            }
+            //  PeopleCollection.Count
+            //  int currentPeopleCount =
+
+            // popRange (-StatTracker.Instance.population) * (maxPeopleCount - StatTracker.Instance.maxpopulation);
+
+            //1000000
+
+
+            //The Temple is the main faith object and levels up as faith grows
+
+            PolygonCollider2D bounds = IslandBounds.GetComponent<PolygonCollider2D>();
+
+            foreach (GameObject go in TreeCollection)
+            {
+                if (go.GetComponent<BoxCollider2D>().IsTouching(bounds) == false)
+                {
+                    //TreeCollection.Remove (go);
+                    //GameObject.Destroy (go);
+                    go.SetActive(false);
+                }
+                else
+                {
+                    foreach (GameObject avd in TreeAvoidList)
+                    {
+                        if (go.GetComponent<BoxCollider2D>().IsTouching(avd.GetComponent<Collider2D>()))
+                        {
+                            //Debug.Log(avd.name);
+                            //TreeCollection.Remove (go);
+                            //GameObject.Destroy (go);
+                            //continue;
+                            go.SetActive(false);
+                        }
+                    }
+                }
+
+                if (go.transform.localScale.x == 1)
                     go.transform.localScale = new Vector3(scale, scale, scale);
 
-			}
+            }
 
-			if ((iterCount % 100) == 0)
-				SetTreeCount (GetDesiredTreeCount());
-			
-			iterCount++;
-		}
+            if ((iterCount % 100) == 0)
+                SetTreeCount(GetDesiredTreeCount());
+
+            iterCount++;
+        }
 
 
 
@@ -142,19 +183,43 @@ namespace AssemblyCSharp
 			}
 		}
 
+        void GeneratePeople(int numToGenerate)
+        {
+            for (int i = 0; i < numToGenerate; i++)
+            {
+                GameObject tempPerson = Instantiate(Resources.Load("Person", typeof(GameObject))) as GameObject;
 
-		// Vector3 GenerateRandomIslandPosition()
-		//{
-			//Vector3 randPos = new Vector3();
+                tempPerson.transform.parent = PeopleParent.transform;
+                tempPerson.transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
+                tempPerson.transform.localPosition = new Vector3(0, 0, 0);
 
 
-		//}
+                PeopleCollection.Add(tempPerson);
+            }
+        }
+
+        void RemovePerson()
+        {
+            if (PeopleCollection.Count > 0)
+            {
+                GameObject del = PeopleCollection[0];
+                PeopleCollection.RemoveAt(0);
+                GameObject.Destroy(del);
+            }            
+        }
+
+        // Vector3 GenerateRandomIslandPosition()
+        //{
+        //Vector3 randPos = new Vector3();
 
 
-		/// <summary>
-		/// Returns a random world point inside the given BoxCollider
-		/// </summary>
-		public static Vector3 GetPointInCollider(PolygonCollider2D area)
+        //}
+
+
+        /// <summary>
+        /// Returns a random world point inside the given BoxCollider
+        /// </summary>
+        public static Vector3 GetPointInCollider(PolygonCollider2D area)
 		{
 			var bounds = area.bounds;
 			var center = bounds.center;
@@ -183,6 +248,10 @@ namespace AssemblyCSharp
 			sprRenderer.sortingOrder = 1;
 			return sprGameObj;
 		}
+
+
+
+
 	}
 }
 
