@@ -11,6 +11,7 @@ public class StatTracker : Singleton<StatTracker> {
 
     public float population = 100.0f;
     public float happiness = 50.0f;
+	public float maxpopulation = 999999;
 
     // We should have at least a brief history of previous gamestates (rounds)
     private Queue<StatGameState> history;

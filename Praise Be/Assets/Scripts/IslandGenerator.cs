@@ -14,21 +14,57 @@ namespace AssemblyCSharp
 		public Building Temple;
 		public Building Store;
 		public Building Factory;
-		
 
 		//HACK
 		public List<GameObject> TreeAvoidList = new List<GameObject>();
 
-
+		private long iterCount;
 		public GameObject TreeParent;
 		private List<GameObject> TreeCollection = new List<GameObject>();
 		private float scale = 50.0f;
 
+		public int minTreeCount;
+		public int maxTreeCount;
 
 
 		void Start ()
 		{
-			GenerateTrees(50);
+			iterCount = 0;
+			minTreeCount = 25;
+			maxTreeCount = 200;
+
+			GenerateTrees(5);
+		}
+
+		private int GetDesiredTreeCount()
+		{
+			// If we have no people, we have lots of trees
+			// If we have people, we have few trees
+			return (int)(maxTreeCount - (maxTreeCount - minTreeCount) * (StatTracker.Instance.population/StatTracker.Instance.maxpopulation));
+		}
+
+		private void SetTreeCount(int desiredCount)
+		{
+			Debug.Log(String.Format("SET TREE COUNT {0}", desiredCount));
+			int maxTreeChange = 5;
+
+
+			if (TreeCollection.Count > desiredCount)
+			{
+				int change = TreeCollection.Count - desiredCount;
+				if (change > maxTreeChange) change = maxTreeChange;
+				for (int i = 0; i < change; ++i)
+				{
+					GameObject.Destroy (TreeCollection[i]);
+				}
+				TreeCollection.RemoveRange(0, change); 
+			}
+			else
+			{
+				int change = desiredCount - TreeCollection.Count;
+				if (change > maxTreeChange) change = maxTreeChange;
+				GenerateTrees (change);
+			}
 		}
 
 		void Update()
@@ -40,7 +76,11 @@ namespace AssemblyCSharp
 			foreach(GameObject go in TreeCollection)
 			{
 				if(go.GetComponent<BoxCollider2D>().IsTouching(bounds) == false)
-					go.SetActive(false);
+				{
+					//TreeCollection.Remove (go);
+					//GameObject.Destroy (go);
+					go.SetActive (false);
+				}
 				else
 				{
 					foreach(GameObject avd in TreeAvoidList)
@@ -48,22 +88,28 @@ namespace AssemblyCSharp
 						if (go.GetComponent<BoxCollider2D>().IsTouching(avd.GetComponent<Collider2D>()))
 						{
 							Debug.Log(avd.name);
-							go.SetActive (false);
+							//TreeCollection.Remove (go);
+							//GameObject.Destroy (go);
 							//continue;
+							go.SetActive (false);
 						}
 					}
 				}
 			}
+
+			if ((iterCount % 100) == 0)
+				SetTreeCount (GetDesiredTreeCount());
+			
+			iterCount++;
 		}
 
 
 
 		void GenerateTrees(int numToGenerate)
 		{
+
 			for(int i = 0; i < numToGenerate; i++)
 			{
-				//string treeName = cloudSpriteNames[Random.Range(0, 5)];
-				
 				// create sprite
 				Texture2D tex = Resources.Load<Texture2D>(System.String.Format("Nature/Tree{0}", UnityEngine.Random.Range(1, 8))) as Texture2D;
 
@@ -71,9 +117,6 @@ namespace AssemblyCSharp
 
 				Vector3 pos = GetPointInCollider(bounds);
 
-					//new Vector3(UnityEngine.Random.Range(-400, 400), UnityEngine.Random.Range(0, 400), 1);
-				
-				
 				// create gameobject
 				GameObject go = AddSprite(tex);
 				go.name = "Tree";
@@ -91,10 +134,7 @@ namespace AssemblyCSharp
 				go.transform.position = pos;
 				go.transform.localScale = new Vector3(scale, scale, scale);
 
-
 				TreeCollection.Add(go);
-				//else
-				//	go.SetActive(false);
 			}
 		}
 
