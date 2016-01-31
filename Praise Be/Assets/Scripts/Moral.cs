@@ -17,6 +17,11 @@ public class Moral : MonoBehaviour {
     public Text moralQuestion;
     public Text moralTimerText;
 
+    public Text moralYesText;
+    public Text moralNoText;
+	
+
+
     private static float timerDuration = 45;
 
     public int numberOfMinPerQuandry = 2;
@@ -54,10 +59,16 @@ public class Moral : MonoBehaviour {
         moralTimerText.text = timerDuration.ToString("0");
         timerDuration -= Time.deltaTime;
 
+		moralYesText.text =  string.Format("{0} Yes", StatTracker.Instance.yesCount);
+		moralNoText.text =  string.Format("{0} No", StatTracker.Instance.noCount);
+
         if (newMoral)
         {
             moralQuestion.text = MoralQuandries[Random.Range(0, MoralQuandries.Count)];
             newMoral = false;
+
+			StatTracker.Instance.yesCount = 0;
+			StatTracker.Instance.noCount = 0;
         }
 
         if (shouldShowMoral)
