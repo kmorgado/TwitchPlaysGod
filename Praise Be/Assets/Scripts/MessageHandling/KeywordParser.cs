@@ -10,16 +10,18 @@ public class KeywordParser : MonoBehaviour {
         public string key;
         public Executor executor;
     } 
-
+        
     public Executor gameLogicExecutor = null;
     public List<KeywordAssociation> keywordLogicAssociation = new List<KeywordAssociation>();
 
     public void OnMessageReceived(Executor.Message message) {
         Boolean messageHandled = false;
 
+        Debug.Log(message);
+
         string messageContents = message.message;
         foreach(KeywordAssociation association in keywordLogicAssociation) {
-            if(messageContents.StartsWith(association.key)) {
+            if(messageContents.ToLower().StartsWith(association.key.ToLower())) {
                 association.executor.Execute(message);
                 messageHandled = true;
                 break;

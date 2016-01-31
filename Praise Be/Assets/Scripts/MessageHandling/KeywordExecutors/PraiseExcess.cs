@@ -1,18 +1,16 @@
-﻿using System;
-
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 
-public class PraiseDeath : GameExecutor {
-
-    public int creationBoon = 1;
-    public int excessBoon = 0;
-    public int deathBoon = 2;
+public class PraiseExcess : GameExecutor {
+    public int creationBoon = 0;
+    public int excessBoon = 2;
+    public int deathBoon = 1;
 
     override public void Execute(Executor.Message message) {
         statTracker.currentCreationGodValue += creationBoon;
         statTracker.currentDeathGodValue += deathBoon;
         statTracker.currentExcessGodValue += excessBoon;
-        this.LogDebug(message.from + " praises DEATH! (" + message.message + ")");
+
+        this.LogDebug(message.from + " praises EXCESS! (" + message.message + ")");
     }
 }
