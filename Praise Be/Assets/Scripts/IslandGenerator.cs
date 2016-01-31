@@ -41,6 +41,18 @@ namespace AssemblyCSharp
 			{
 				if(go.GetComponent<BoxCollider2D>().IsTouching(bounds) == false)
 					go.SetActive(false);
+				else
+				{
+					foreach(GameObject avd in TreeAvoidList)
+					{
+						if (go.GetComponent<BoxCollider2D>().IsTouching(avd.GetComponent<Collider2D>()))
+						{
+							Debug.Log(avd.name);
+							go.SetActive (false);
+							//continue;
+						}
+					}
+				}
 			}
 		}
 
@@ -78,9 +90,6 @@ namespace AssemblyCSharp
 				go.transform.parent = TreeParent.transform;
 				go.transform.position = pos;
 				go.transform.localScale = new Vector3(scale, scale, scale);
-
-
-
 
 
 				TreeCollection.Add(go);
