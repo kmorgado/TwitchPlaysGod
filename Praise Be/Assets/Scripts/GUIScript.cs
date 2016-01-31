@@ -16,7 +16,7 @@ public class GUIScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        population.text = string.Format("Population {0}", StatTracker.Instance.population.ToString());
+        population.text = string.Format("Population {0:n0}", StatTracker.Instance.population);
         stats.text = string.Format("Havoc {0}%     Creation {1}%     Revelry {2}%", StatTracker.Instance.currentDeathGodValue.ToString("0"), StatTracker.Instance.currentCreationGodValue.ToString("0"), StatTracker.Instance.currentExcessGodValue.ToString("0"));
 	}
 }
