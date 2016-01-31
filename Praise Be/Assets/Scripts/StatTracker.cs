@@ -64,9 +64,9 @@ public class StatTracker : Singleton<StatTracker> {
         if (population > 0) {
             float valueTotals = currentCreationGodValue + currentDeathGodValue + currentExcessGodValue;
 
-            currentCreationGodValue = ((currentCreationGodValue / valueTotals * 100.0f) + 66.0f) / 3.0f;
-            currentDeathGodValue = ((currentDeathGodValue / valueTotals * 100.0f) + 66.0f) / 3.0f;
-            currentExcessGodValue = ((currentExcessGodValue / valueTotals * 100.0f) + 66.0f) / 3.0f;
+            currentCreationGodValue = ((currentCreationGodValue / valueTotals * 100.0f));
+            currentDeathGodValue = ((currentDeathGodValue / valueTotals * 100.0f));
+            currentExcessGodValue = ((currentExcessGodValue / valueTotals * 100.0f));
 
             float lifeAverage = (currentCreationGodValue + currentDeathGodValue) * 0.5f;
             if(lifeAverage < currentCreationGodValue) {

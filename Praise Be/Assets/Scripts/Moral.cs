@@ -17,7 +17,9 @@ public class Moral : MonoBehaviour {
     public Text moralQuestion;
     public Text moralTimerText;
 
-    public int numberOfMinPerQuandry = 1;
+    private static float timerDuration = 45;
+
+    public int numberOfMinPerQuandry = 2;
 
 
     private List<string> MoralQuandries = new List<string>();
@@ -35,14 +37,13 @@ public class Moral : MonoBehaviour {
         MoralQuandries.Add("You have cheated Death. You are told that you have to kill someone. You either kill someone you love dearly, and NO ONE will ever know you did it. OR you must publicly execute a complete stranger, whom Death chooses. Do you kill the stanger?");
         //parentObject.SetActive(false);
 
-        //numberOfMinPerQuandry * 60 * 1000
-        _timer = new Timer(5000);
+        _timer = new Timer(numberOfMinPerQuandry * 60 * 1000);
         _timer.Elapsed += new ElapsedEventHandler(_timer_Elapsed);
         _timer.AutoReset = true;
         _timer.Enabled = true; // Enable it
 
-        //Morals will last for 30 seconds
-        _Moraltimer = new Timer(30000); 
+        //Morals will last for 45 seconds
+        _Moraltimer = new Timer(45000); 
         _Moraltimer.Elapsed += new ElapsedEventHandler(_moralTimer_Elapsed);
 
 	}
@@ -50,7 +51,8 @@ public class Moral : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        moralTimerText.text = _Moraltimer.ToString();
+        moralTimerText.text = timerDuration.ToString("0");
+        timerDuration -= Time.deltaTime;
 
         if (newMoral)
         {
@@ -75,6 +77,7 @@ public class Moral : MonoBehaviour {
         shouldShowMoral = true;
         newMoral = true;
         _Moraltimer.Enabled = true;
+        timerDuration = 45;
         //_timer.Stop();
     }
 

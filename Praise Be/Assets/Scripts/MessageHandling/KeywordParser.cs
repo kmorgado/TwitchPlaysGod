@@ -17,6 +17,8 @@ public class KeywordParser : MonoBehaviour {
     public void OnMessageReceived(Executor.Message message) {
         Boolean messageHandled = false;
 
+        Debug.Log(message);
+
         string messageContents = message.message;
         foreach(KeywordAssociation association in keywordLogicAssociation) {
             if(messageContents.ToLower().StartsWith(association.key.ToLower())) {
