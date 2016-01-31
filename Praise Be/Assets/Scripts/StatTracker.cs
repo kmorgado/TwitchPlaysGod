@@ -70,9 +70,9 @@ public class StatTracker : Singleton<StatTracker> {
 
             float lifeAverage = (currentCreationGodValue + currentDeathGodValue) * 0.5f;
             if(lifeAverage < currentCreationGodValue) {
-                population = population + (population * ((currentCreationGodValue - lifeAverage) / lifeAverage));
+                population = population + (population * ((currentCreationGodValue - lifeAverage) / lifeAverage) * Time.deltaTime);
             } else if(lifeAverage < currentDeathGodValue) {
-                population = population - (population * ((currentDeathGodValue - lifeAverage) / lifeAverage));
+                population = population - (population * ((currentDeathGodValue - lifeAverage) / lifeAverage) * Time.deltaTime);
             }
 
             happiness = happiness + (happiness * ((currentExcessGodValue - lifeAverage) / currentExcessGodValue));
