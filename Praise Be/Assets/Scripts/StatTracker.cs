@@ -8,8 +8,9 @@ public class StatTracker : Singleton<StatTracker> {
     // How many of these can we hold?
     // Fuck it, start with 256
     const int maxHistoryLength = 256;
-    private List<int> population = new List<int>();
-    private int averageLifeSpan = 50;
+
+    public float population = 100.0f;
+    public float happiness = 50.0f;
 
     // We should have at least a brief history of previous gamestates (rounds)
     private Queue<StatGameState> history;
@@ -17,7 +18,7 @@ public class StatTracker : Singleton<StatTracker> {
     private StatGameState currentState;
 
     // Accessors for current game state
-    public double currentFaithValue
+    public float currentFaithValue
     {
         get { return currentState.faithValue; }
         set { currentState.faithValue = value; }
@@ -27,22 +28,22 @@ public class StatTracker : Singleton<StatTracker> {
         get { return currentState.viewerCount; }
         set { currentState.viewerCount = value; }
     }
-    public double currentExcessGodValue
+    public float currentExcessGodValue
     {
         get { return currentState.enduranceGodValue; }
         set { currentState.enduranceGodValue = value; }
     }
-    public double currentDeathGodValue
+    public float currentDeathGodValue
     {
         get { return currentState.deathGodValue; }
         set { currentState.deathGodValue = value; }
     }
-    public double currentCreationGodValue
+    public float currentCreationGodValue
     {
         get { return currentState.creationGodValue; }
         set { currentState.creationGodValue = value; }
     }
-    public double currentAnarchyValue
+    public float currentAnarchyValue
     {
         get { return currentState.anarchyValue; }
         set { currentState.anarchyValue = value; }
@@ -53,19 +54,30 @@ public class StatTracker : Singleton<StatTracker> {
         history = new Queue<StatGameState>();
         currentState = new StatGameState();
 
-        currentCreationGodValue = 33;
-        currentDeathGodValue = 33;
-        currentExcessGodValue = 33;
-
-        for(int i = 0; i < 100; i++) {
-            population.Add(i);
-        }
+        currentCreationGodValue = 33.0f;
+        currentDeathGodValue = 33.0f;
+        currentExcessGodValue = 33.0f;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        
+        if (population > 0) {
 
+            float valueTotals = currentCreationGodValue + currentDeathGodValue + currentExcessGodValue;
+
+            currentCreationGodValue = currentCreationGodValue / valueTotals * 100.0f;
+            currentDeathGodValue = currentDeathGodValue / valueTotals * 100.0f;
+            currentExcessGodValue = currentExcessGodValue / valueTotals * 100.0f;
+
+            float lifeAverage = (currentCreationGodValue + currentDeathGodValue) * 0.5f;
+            if(lifeAverage < currentCreationGodValue) {
+                population = population + (population * ((currentCreationGodValue - lifeAverage) / lifeAverage));
+            } else if(lifeAverage < currentDeathGodValue) {
+                population = population - (population * ((currentDeathGodValue - lifeAverage) / lifeAverage));
+            }
+
+            happiness = happiness + (happiness * ((currentExcessGodValue - lifeAverage) / currentExcessGodValue));
+        }
 	}
 
     // This will get fired on a timer, this timer may come from this class

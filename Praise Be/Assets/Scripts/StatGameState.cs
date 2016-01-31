@@ -8,17 +8,17 @@ public class StatGameState : MonoBehaviour {
 
     // Stats based directly on user input
     // Faith
-    public double faithValue;
+    public float faithValue;
     // Viewer count - being optimistic ;)
     public long viewerCount;
 
     // So 3 gods, to start just a raw stat for each
-    public double enduranceGodValue;
-    public double deathGodValue;
-    public double creationGodValue;
+    public float enduranceGodValue;
+    public float deathGodValue;
+    public float creationGodValue;
 
     // Rando
-    public double anarchyValue;
+    public float anarchyValue;
 
 
     // Use this for initialization
