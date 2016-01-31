@@ -13,9 +13,9 @@ public class StatGameState : MonoBehaviour {
     public long viewerCount;
 
     // So 3 gods, to start just a raw stat for each
-    public double lifeGodValue;
+    public double enduranceGodValue;
     public double deathGodValue;
-    public double chaosGodValue;
+    public double creationGodValue;
 
     // Rando
     public double anarchyValue;

@@ -8,6 +8,8 @@ public class StatTracker : Singleton<StatTracker> {
     // How many of these can we hold?
     // Fuck it, start with 256
     const int maxHistoryLength = 256;
+    private List<int> population = new List<int>();
+    private int averageLifeSpan = 50;
 
     // We should have at least a brief history of previous gamestates (rounds)
     private Queue<StatGameState> history;
@@ -25,20 +27,20 @@ public class StatTracker : Singleton<StatTracker> {
         get { return currentState.viewerCount; }
         set { currentState.viewerCount = value; }
     }
-    public double currentLifeGodValue
+    public double currentExcessGodValue
     {
-        get { return currentState.lifeGodValue; }
-        set { currentState.lifeGodValue = value; }
+        get { return currentState.enduranceGodValue; }
+        set { currentState.enduranceGodValue = value; }
     }
     public double currentDeathGodValue
     {
         get { return currentState.deathGodValue; }
         set { currentState.deathGodValue = value; }
     }
-    public double currentChaosGodValue
+    public double currentCreationGodValue
     {
-        get { return currentState.chaosGodValue; }
-        set { currentState.chaosGodValue = value; }
+        get { return currentState.creationGodValue; }
+        set { currentState.creationGodValue = value; }
     }
     public double currentAnarchyValue
     {
@@ -50,10 +52,19 @@ public class StatTracker : Singleton<StatTracker> {
     void Start () {
         history = new Queue<StatGameState>();
         currentState = new StatGameState();
+
+        currentCreationGodValue = 33;
+        currentDeathGodValue = 33;
+        currentExcessGodValue = 33;
+
+        for(int i = 0; i < 100; i++) {
+            population.Add(i);
+        }
 	}
 	
 	// Update is called once per frame
 	void Update () {
+        
 
 	}
 

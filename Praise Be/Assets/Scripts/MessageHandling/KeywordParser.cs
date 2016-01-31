@@ -10,7 +10,7 @@ public class KeywordParser : MonoBehaviour {
         public string key;
         public Executor executor;
     } 
-
+        
     public Executor gameLogicExecutor = null;
     public List<KeywordAssociation> keywordLogicAssociation = new List<KeywordAssociation>();
 
