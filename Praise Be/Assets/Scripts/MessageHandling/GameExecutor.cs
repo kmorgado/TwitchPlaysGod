@@ -7,6 +7,8 @@ public class GameExecutor : Executor
     // 
     // There should only be one scene! 
 
+    public StatTracker statTracker = null;
+
     override
     public void Execute(Message message) {
         LogDebug("No impl: (" + message.ToString() + ")");

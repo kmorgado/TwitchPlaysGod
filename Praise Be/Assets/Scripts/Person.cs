@@ -21,12 +21,48 @@ public class Person : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         moveChancePct = 0.03f;
-        currentWalkDirection = walkDirection.STOP;
+        currentWalkDirection = walkDirection.WEST;
 	}
 	
 	// Update is called once per frame
 	void Update () {
         MoveSmarter();
+	}
+
+	void OnCollisionEnter2D(Collision2D other)
+	{
+		Debug.Log ("Outta my way you stupid ass building");
+		if(other.gameObject.tag.Equals("Building"))
+		{
+			switchDirection ();
+		}
+	}
+
+	void OnCollisionExit2D(Collision2D other)
+	{
+		Debug.Log ("Gettin off this island muthafucka!!!");
+		if(other.gameObject.tag.Equals ("Island"))
+		{
+			switchDirection ();
+		}
+	}
+	private void switchDirection()
+	{
+		switch (currentWalkDirection)
+		{
+		case walkDirection.NORTH:
+			currentWalkDirection = walkDirection.SOUTH;
+			break;
+		case walkDirection.SOUTH:
+			currentWalkDirection = walkDirection.NORTH;
+			break;
+		case walkDirection.EAST:
+			currentWalkDirection = walkDirection.WEST;
+			break;
+		case walkDirection.WEST:
+			currentWalkDirection = walkDirection.EAST;
+			break;
+		}
 	}
 
     private void MoveSmarter()
@@ -38,7 +74,7 @@ public class Person : MonoBehaviour {
         Move();
     }
 
-    private void Move()
+    private void Move(float scale = 1.0f)
     {
         RectTransform transform = (RectTransform)GetComponentInParent(typeof(RectTransform));
 
@@ -46,45 +82,20 @@ public class Person : MonoBehaviour {
         {
             case walkDirection.NORTH:
                 // Move up
-                transform.Translate(new Vector3(0, -1, 0));
+                transform.Translate(new Vector3(0, -1 * scale, 0));
                 break;
             case walkDirection.SOUTH:
                 // Move down
-                transform.Translate(new Vector3(0, 1, 0));
+                transform.Translate(new Vector3(0, 1 * scale, 0));
                 break;
             case walkDirection.WEST:
                 // Move left
-                transform.Translate(new Vector3(-1, 0, 0));
+                transform.Translate(new Vector3(-1 * scale, 0, 0));
                 break;
             case walkDirection.EAST:
                 // Move right
-                transform.Translate(new Vector3(1, 0, 0));
+                transform.Translate(new Vector3(1 * scale, 0, 0));
                 break;
-        }
-
-        if (!IsValidTransform())
-        {
-            switch (currentWalkDirection)
-            {
-                case walkDirection.NORTH:
-                    // Move up
-                    transform.Translate(new Vector3(0, 1, 0));
-                    break;
-                case walkDirection.SOUTH:
-                    // Move down
-                    transform.Translate(new Vector3(0, -1, 0));
-                    break;
-                case walkDirection.WEST:
-                    // Move left
-                    transform.Translate(new Vector3(1, 0, 0));
-                    break;
-                case walkDirection.EAST:
-                    // Move right
-                    transform.Translate(new Vector3(-1, 0, 0));
-                    break;
-            }
-
-            currentWalkDirection = walkDirection.STOP;
         }
     }
 
@@ -109,9 +120,11 @@ public class Person : MonoBehaviour {
         }
     }
 
-    //
+    
     private bool IsValidTransform()
     {
+		return true;
+
         GameObject checker = GameObject.Find("IslandBounds");
 
         if (checker == null)
@@ -135,8 +148,12 @@ public class Person : MonoBehaviour {
         }
 
         // Ok, so we have colliders, lets see if they are touching
-        bool touching = islandCollider.IsTouching(personCollider);
-        Debug.Log(string.Format("Touching: {0}", touching ? "True" : "False"));
-        return touching;
+        bool onIsland = islandCollider.IsTouching(personCollider);
+        bool touchingBuildings = personCollider.IsTouchingLayers(LayerMask.NameToLayer("Buildings"));
+        Debug.Log(string.Format("OnIsland: {0}", onIsland ? "TRUE" : "FALSE"));
+        Debug.Log(string.Format("buildings: {0}", touchingBuildings ? "*******TOUCH*******" : "Empty"));
+        Debug.Log(string.Format("curDirection: {0}", currentWalkDirection.ToString()));
+        return onIsland && !touchingBuildings;
     }
+    
 }
