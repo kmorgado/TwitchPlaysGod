@@ -69,22 +69,24 @@ public class Person : MonoBehaviour {
                 case walkDirection.NORTH:
                     // Move up
                     transform.Translate(new Vector3(0, 1, 0));
+                    currentWalkDirection = walkDirection.SOUTH;
                     break;
                 case walkDirection.SOUTH:
                     // Move down
                     transform.Translate(new Vector3(0, -1, 0));
+                    currentWalkDirection = walkDirection.NORTH;
                     break;
                 case walkDirection.WEST:
                     // Move left
                     transform.Translate(new Vector3(1, 0, 0));
+                    currentWalkDirection = walkDirection.EAST;
                     break;
                 case walkDirection.EAST:
                     // Move right
                     transform.Translate(new Vector3(-1, 0, 0));
+                    currentWalkDirection = walkDirection.WEST;
                     break;
             }
-
-            currentWalkDirection = walkDirection.STOP;
         }
     }
 
@@ -135,8 +137,11 @@ public class Person : MonoBehaviour {
         }
 
         // Ok, so we have colliders, lets see if they are touching
-        bool touching = islandCollider.IsTouching(personCollider);
-        Debug.Log(string.Format("Touching: {0}", touching ? "True" : "False"));
-        return touching;
+        bool onIsland = islandCollider.IsTouching(personCollider);
+        bool touchingBuildings = personCollider.IsTouchingLayers(LayerMask.NameToLayer("Buildings"));
+        Debug.Log(string.Format("OnIsland: {0}", onIsland ? "TRUE" : "FALSE"));
+        Debug.Log(string.Format("buildings: {0}", touchingBuildings ? "*******TOUCH*******" : "Empty"));
+        Debug.Log(string.Format("curDirection: {0}", currentWalkDirection.ToString()));
+        return onIsland && !touchingBuildings;
     }
 }
