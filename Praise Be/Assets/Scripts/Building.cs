@@ -46,7 +46,7 @@ namespace AssemblyCSharp
 
 		void LevelDown()
 		{
-			if(currentBuildingLevel > 0)
+			if(currentBuildingLevel > 1)
 			{				
 				currentBuildingLevel--;
 				buildingImage.sprite = levelImages[currentBuildingLevel - 1];

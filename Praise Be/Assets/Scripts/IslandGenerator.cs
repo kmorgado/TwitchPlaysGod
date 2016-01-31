@@ -95,6 +95,10 @@ namespace AssemblyCSharp
 						}
 					}
 				}
+
+                if(go.transform.localScale.x == 1)
+                    go.transform.localScale = new Vector3(scale, scale, scale);
+
 			}
 
 			if ((iterCount % 100) == 0)
@@ -132,9 +136,9 @@ namespace AssemblyCSharp
 
 				go.transform.parent = TreeParent.transform;
 				go.transform.position = pos;
-				go.transform.localScale = new Vector3(scale, scale, scale);
+				go.transform.localScale = new Vector3(1, 1, 1);
 
-				TreeCollection.Add(go);
+                TreeCollection.Add(go);
 			}
 		}
 
