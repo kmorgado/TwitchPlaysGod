@@ -29,7 +29,7 @@ public class Moral : MonoBehaviour {
 	void Start () {
 
 
-        MoralQuandries.Add("You’re headed to an important meeting when you see a nearsighted old lady struggling to cross the street. Do you stop and help, even though it might make you late?");
+        MoralQuandries.Add("You’re headed to a very important meeting when you see a nearsighted old lady struggling to cross the street. Do you stop and help, even though it might cost you your job?");
         MoralQuandries.Add("You’re about to get your 8-year-old daughter the toy chemistry set she’s wanted for weeks, but at the store, she suddenly decides she wants a big stuffed bear instead. Do you buy her the bear?");
         MoralQuandries.Add("There is a button and if you push it there is a 95% chance all suffering on earth will instantly cease and we would live in a utopian world but there is a 5% chance everyone in earth will die painfully? Do you hit the button?");
         MoralQuandries.Add("Your best friend commits a serious felony, and you know they had no justification. Do you turn in your friend?");
