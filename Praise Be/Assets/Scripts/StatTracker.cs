@@ -50,6 +50,9 @@ public class StatTracker : Singleton<StatTracker> {
         set { currentState.anarchyValue = value; }
     }
 
+    public int yesCount = 0;
+    public int noCount = 0;
+
     // Use this for initialization
     void Start () {
         history = new Queue<StatGameState>();
