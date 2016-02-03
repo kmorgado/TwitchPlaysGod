@@ -214,6 +214,8 @@ namespace AssemblyCSharp
             tempBuilding.transform.localPosition = PotentialBuildingLocations[UnityEngine.Random.Range(0, PotentialBuildingLocations.Count)].localPosition;
             //tempBuilding.GetComponent<Image>().color = skinColors[UnityEngine.Random.Range(0, skinColors.Count - 1)];
 
+            //tempBuilding.GetComponent<Building>().buildingAffinity = Assets.Scripts.Utility.Affinity.Faith;
+
             BuildingCollection.Add(tempBuilding);
         }
 

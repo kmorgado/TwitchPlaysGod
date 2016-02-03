@@ -18,7 +18,6 @@ namespace AssemblyCSharp
 
 		//public List<LevelTuple> ListOfLevels;
 
-		
 		void Start ()
 		{
 			maxBuildingLevel = levelImages.Count;
@@ -54,6 +53,16 @@ namespace AssemblyCSharp
 				
 			}
 		}
+
+        void SetLevel(int newLevel)
+        {
+            if (newLevel > 0 && newLevel < maxBuildingLevel)
+            {
+                currentBuildingLevel = newLevel;
+                buildingImage.sprite = levelImages[currentBuildingLevel - 1];
+                buildingImage.SetNativeSize();
+            }
+        }
 
 	}
 }
