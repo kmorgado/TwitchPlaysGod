@@ -36,6 +36,13 @@ namespace AssemblyCSharp
 
         public List<Color> skinColors;
 
+
+
+        public List<Transform> PotentialBuildingLocations;
+
+        public GameObject BuildingParent;
+        private List<GameObject> BuildingCollection = new List<GameObject>();
+
 		void Start ()
 		{
 			iterCount = 0;
@@ -83,7 +90,8 @@ namespace AssemblyCSharp
                 GeneratePeople(2);
             if (Input.GetKeyDown(KeyCode.O))
                 RemovePerson();
-
+            if (Input.GetKeyDown(KeyCode.I))
+                GenerateBuilding();
 
             //StatTracker.Instance.population / 
             float popRange = (StatTracker.Instance.maxpopulation - 100.0f);
@@ -196,6 +204,19 @@ namespace AssemblyCSharp
                 PeopleCollection.Add(tempPerson);
             }
         }
+
+        void GenerateBuilding()
+        {
+            GameObject tempBuilding = Instantiate(Resources.Load("Building", typeof(GameObject))) as GameObject;
+
+            tempBuilding.transform.parent = BuildingParent.transform;
+            tempBuilding.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+            tempBuilding.transform.localPosition = PotentialBuildingLocations[UnityEngine.Random.Range(0, PotentialBuildingLocations.Count)].localPosition;
+            //tempBuilding.GetComponent<Image>().color = skinColors[UnityEngine.Random.Range(0, skinColors.Count - 1)];
+
+            BuildingCollection.Add(tempBuilding);
+        }
+
 
         void RemovePerson()
         {
